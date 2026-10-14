@@ -32,6 +32,13 @@ To run this code, you need to have an active [Stream](https://getstream.io/chat/
 1. Update the values for `NEXT_PUBLIC_REACT_APP_STREAM_KEY` and `REACT_APP_STREAM_SECRET` from [your Stream project's dashboard](https://dashboard.getstream.io/)
 1. Run `npm run dev` to start the local development server
 
+### Enable Google sign-in
+
+1. In Google Cloud Console, create an OAuth client ID for a web application. Add the callback URL shown in Supabase's Google provider settings as an authorized redirect URI (typically `https://<project-ref>.supabase.co/auth/v1/callback`).
+1. In Supabase, open **Authentication → Providers → Google**, enable Google, and enter the OAuth client ID and secret.
+1. In **Authentication → URL Configuration**, add each app callback URL to the allowed redirect URLs, including `http://localhost:3000/auth/callback` and `https://<your-domain>/auth/callback` for production.
+1. If the Google OAuth consent screen is still in testing mode, add your Google account as a test user.
+
 ### Deploy your own instance
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FGetStream%2Ffullstack-nextjs-whatsapp-clone&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,NEXT_PUBLIC_REACT_APP_STREAM_KEY,REACT_APP_STREAM_SECRET&envDescription=This%20project%20requires%20credentials%20for%20Supabase's%20and%20Stream's%20APIs.&envLink=https%3A%2F%2Fgithub.com%2FGetStream%2Ffullstack-nextjs-whatsapp-clone)
